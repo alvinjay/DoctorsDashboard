@@ -33,6 +33,7 @@ import com.example.model.Age;
 import com.example.model.Patient;
 import com.example.model.Preferences;
 import com.example.model.Rest;
+import com.example.parser.EncounterParser;
 import com.example.parser.PatientParser;
 
 public class PatientActivity extends BaseActivity {
@@ -41,10 +42,10 @@ public class PatientActivity extends BaseActivity {
 	private ArrayList<Patient> patients;
 	
 	
-	private String patients_url; // = Preferences.getBaseURL(this) + "/patient/show/";
+	private String patients_url = "/patient/show/";
 
 	//private final String patients_url = "http://121.97.45.242/segservice/patient/show/";
-	//private final String encounters_url = getBaseURL() + "/encounter/";
+	private final String encounters_url = "/encounter/show/";
 	
 	private int patient_id;
 	
@@ -63,25 +64,7 @@ public class PatientActivity extends BaseActivity {
 		patients = new ArrayList<Patient>();
 		if(isNetworkAvailable()){
 
-			patients_url = Preferences.getBaseURL(this) + "/patient/show/";
-			
-			Rest rest = new Rest("GET",this, "Retrieving patients...");
-			
-			rest.setURL(patients_url);
-			
-			rest.execute();
-			
-
-			while(rest.getContent() == null){}
-			
-			logMessage(rest.getContent());
-			
-			if(rest.getResult()){
-				String content = rest.getContent();
-				PatientParser patient_parser = new PatientParser(content);
-				patients = patient_parser.getPatients();
-			}
-			
+			retrieveDepartmentPatients();
 		} 
 		else{
 		
@@ -289,6 +272,94 @@ public class PatientActivity extends BaseActivity {
 		    }
 		});
 		
+	}
+
+	/* retrieve all patients on the same department as the doctor */
+	private void retrieveDepartmentPatients() {
+
+		logMessage("1");
+		ArrayList<String> pids = retrieveDepartmentEncounters();
+		logMessage("2");		
+		patients = retrievePatientAPI(pids);
+		logMessage("3");		
+		
+		for(int i=0;i<patients.size();i++){
+			logMessage("Patient ID: " + patients.get(i).getFullName());
+		}
+
+//		Rest rest = new Rest("GET",this, "Retrieving patients...");
+//		
+//		rest.setURL(patients_url);
+//		
+//		rest.execute();
+//		
+//
+//		while(rest.getContent() == null){}
+//		
+//		logMessage(rest.getContent());
+//		
+//		if(rest.getResult()){
+//			String content = rest.getContent();
+//			PatientParser patient_parser = new PatientParser(content);
+//			patients = patient_parser.getPatients();
+//		}
+	}
+
+	/* retrieve all encounters based on department of doctor*/
+	private ArrayList<String> retrieveDepartmentEncounters() {
+		
+		Rest rest = new Rest("GET",this, "Retrieving patients...");
+		
+		rest.setURL(Preferences.getBaseURL(this) + encounters_url);
+		
+		rest.addRequestParams("deptid", Preferences.getDepartmentShort(this));
+		
+		rest.execute();
+
+		while(rest.getContent() == null){}
+		
+		//logMessage("Data receiveds: " + rest.getContent());
+		
+		EncounterParser parser = new EncounterParser(rest.getContent());
+		ArrayList<String> pids = parser.getPatientIds();
+	
+		return pids;
+	}
+	
+	/* retrieve patient data from web service based on PID */
+	private ArrayList<Patient> retrievePatientAPI(ArrayList<String> pids) {
+		
+		ArrayList<Patient> patients =  new ArrayList<Patient>();
+		
+		for(int i=0;i<pids.size();i++){
+			
+			Rest rest = new Rest("GET", this, "Retrieving patient information...");
+			rest.setURL(Preferences.getBaseURL(this) + patients_url);
+			
+			rest.addRequestParams("id", pids.get(i));
+			logMessage("PID: "+pids.get(i));
+			rest.execute();
+			
+			while(rest.getContent() == null){}
+			
+			String content = rest.getContent();
+			
+			PatientParser parser = new PatientParser(content);
+			patient = parser.getPatient();
+			
+			try{
+				if(!patient.equals(null)){
+					patients.add(patient);
+				}
+				else{
+					logMessage("NULL ERROR");
+				}
+			} catch(Exception e){
+				logMessage(e.toString() + ": patient not found in patients API");
+			}
+		}
+		
+		return patients;
 	}
 
 	public boolean isNetworkAvailable() {
