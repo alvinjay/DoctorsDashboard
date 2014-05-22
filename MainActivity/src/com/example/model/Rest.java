@@ -47,8 +47,9 @@ public class Rest extends AsyncTask<String, Void, Void>{
 	private boolean 			result;
 	private ProgressDialog      progressdialog; 
 	private Context             context;
-	
+
 	private String 				message;
+	private String 				success;
 	
 	
 	public Rest(String method){
@@ -111,6 +112,15 @@ public class Rest extends AsyncTask<String, Void, Void>{
 		}
 	}
 	
+	private void setSuccess(){
+		
+		try {
+			success = new JSONObject(content).optString("success");
+		} catch (JSONException e) {
+			System.out.println(e.toString() + ": no success node");
+		}
+	}
+	
 	/* Getter Methods */
 	
 	public String getURL(){
@@ -131,6 +141,10 @@ public class Rest extends AsyncTask<String, Void, Void>{
 	
 	public String getMessage(){
 		return message;
+	}
+
+	public String getSuccess(){
+		return this.success;
 	}
 	
 
@@ -171,8 +185,12 @@ public class Rest extends AsyncTask<String, Void, Void>{
 				result = false;
 			}
 		}
-
-		content = response.getResponseString();
+		
+		try{
+			content = response.getResponseString();
+		}catch(Exception e){
+			System.out.println("Empty Content");
+		}
 		
 		if(!content.isEmpty()){
 			setMessage();

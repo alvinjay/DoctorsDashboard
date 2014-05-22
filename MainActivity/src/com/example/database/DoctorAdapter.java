@@ -28,7 +28,10 @@ public class DoctorAdapter extends Data{
 	
 	private static final int 	DATABASE_VERSION	= 1;
 	private static final String DATABASE_NAME 		= "localhost";
-	//
+	
+	private final static int NULL = 0;
+	private final static String EMPTY = "";
+	
 	public  DoctorAdapter(Context context) 
 	{
 		try {
@@ -118,13 +121,15 @@ public class DoctorAdapter extends Data{
 				" WHERE authtoken = '" + auth + "'";
 		try{
 			cursor = db.rawQuery(query, null);
+			cursor.moveToFirst();
+			
+			System.out.println("base_url: "+ cursor.getString(0));
+			return cursor.getString(0);
         }catch(Exception e) {
          Log.d("DoctorAdapter getBaseUrl", Log.getStackTraceString(e));
-         return "";
         }
-		cursor.moveToFirst();
-		System.out.println("base_url: "+ cursor.getString(0));
-		return cursor.getString(0);
+		
+		return EMPTY;
 	}
 	
 	/* This function gets the personnel number associated with the doctor 
@@ -138,19 +143,21 @@ public class DoctorAdapter extends Data{
 				" WHERE authtoken = '" + auth + "'";
 		try{
 			cursor = db.rawQuery(query, null);
+			cursor.moveToFirst();
+			
+			System.out.println("Personnel Nr: "+ cursor.getString(0));
+			return cursor.getInt(0);
         }catch(Exception e) {
          Log.d("DoctorAdapter getPersonnelNr", Log.getStackTraceString(e));
-         return 0;
         }
-		cursor.moveToFirst();
-		System.out.println("Personnel Nr: "+ cursor.getString(0));
-		return cursor.getInt(0);
+		
+		return NULL;
 	}
 	
-	/* This function gets the dept number associated with the doctor 
+	/* This function gets the dept name associated with the doctor 
 	 * by his/her authentication token
 	 */
-	public String getDepartment(String auth) {
+	public String getDepartmentName(String auth) {
 		db = dbHandler.getReadableDatabase();
 		String query = 
 				"SELECT dept.name_dept " + 
@@ -159,12 +166,70 @@ public class DoctorAdapter extends Data{
 						+ "AND dept.dept_id = doc.dept_id";
 		try{
 			cursor = db.rawQuery(query, null);
+			cursor.moveToFirst();
+			
+			System.out.println("Dept Name: "+ cursor.getString(0));
+			return cursor.getString(0);
+			
         }catch(Exception e) {
-         Log.d("DoctorAdapter getDeptNr", Log.getStackTraceString(e));
+         Log.d("DoctorAdapter getDeptName", Log.getStackTraceString(e));
+        }finally{
+        	db.close();
         }
-		cursor.moveToFirst();
-		System.out.println("Dept Name: "+ cursor.getString(0));
-		return cursor.getString(0);
+		
+		return EMPTY;
 	}
 	
+	/* This function gets the dept id associated with the doctor 
+	 * by his/her authentication token
+	 */
+	public int getDepartmentId(String auth) {
+		db = dbHandler.getReadableDatabase();
+		String query = 
+				"SELECT dept.dept_id " + 
+				"FROM department as dept " +
+				"INNER JOIN doctor as doc ON doc.authtoken = '" + auth + "' "
+						+ "AND dept.dept_id = doc.dept_id";
+		try{
+			cursor = db.rawQuery(query, null);
+			cursor.moveToFirst();
+			
+			System.out.println("Dept Id: "+ cursor.getInt(0));
+			return cursor.getInt(0);
+        }catch(Exception e) {
+         Log.d("DoctorAdapter getDeptId", Log.getStackTraceString(e));
+        }finally{
+        	db.close();
+        }
+		
+		return NULL;
+	}
+	
+
+	/* This function gets the dept short name associated with the doctor 
+	 * by his/her authentication token
+	 */
+	public String getDepartmentShort(String auth) {
+		db = dbHandler.getReadableDatabase();
+		String query = 
+				"SELECT dept.short_dept " + 
+				"FROM department as dept " +
+				"INNER JOIN doctor as doc ON doc.authtoken = '" + auth + "' "
+						+ "AND dept.dept_id = doc.dept_id";
+		try{
+			cursor = db.rawQuery(query, null);
+			cursor.moveToFirst();
+			
+			System.out.println("Dept Short: "+ cursor.getString(0));
+			return cursor.getString(0);
+        }catch(Exception e) {
+         Log.d("DoctorAdapter getDeptShort", Log.getStackTraceString(e));
+        }finally{
+        	db.close();
+        }
+		
+		return EMPTY;
+		
+		
+	}
 }

@@ -58,7 +58,7 @@
             android:src="@drawable/line" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/imageCanvas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/textView3"

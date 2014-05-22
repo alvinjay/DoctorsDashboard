@@ -70,7 +70,7 @@
         android:layout_centerHorizontal="true" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageCanvas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/laboratoryServiceSectionSpinner"
@@ -82,12 +82,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/imageView3"
+        android:layout_below="@+id/imageCanvas"
         android:text="Search Laboratory Test:"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -103,18 +103,9 @@
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText1"
+        android:layout_below="@+id/titleText"
         android:layout_centerHorizontal="true"
         android:src="@drawable/line" />
-
-    <ListView
-        android:id="@+id/servicesList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView4"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp" >
-    </ListView>
 
     <TextView
         android:id="@+id/textView5"
@@ -124,6 +115,23 @@
         android:layout_below="@+id/imageView4"
         android:text="Services:"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/addServicesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="Add Services" />
+
+    <ListView
+        android:id="@+id/servicesList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/addServicesButton"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView5" />
 
 </RelativeLayout>
 

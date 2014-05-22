@@ -28,63 +28,7 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/textView1"
             android:layout_marginTop="25dp" >
-
-            <RadioButton
-                android:id="@+id/cashTransactionTypeLaboratory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/transaction_cash" />
-
-            <RadioButton
-                android:id="@+id/chargeTransactionTypeLaboratory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/transaction_charge" />
         </RadioGroup>
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/textView1"
-            android:text="Transaction Type"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_alignTop="@+id/textView2"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/linetwo" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/imageView1"
-            android:layout_toRightOf="@+id/imageView1"
-            android:text="Discounts"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <CheckBox
-            android:id="@+id/seniorCitizenCheckBoxLaboratory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/radioGroup1"
-            android:layout_alignLeft="@+id/textView4"
-            android:text="@string/discount_senior" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/textView1"
-            android:layout_alignTop="@+id/radioGroup1"
-            android:text="@string/discount_classification"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -94,50 +38,67 @@
             android:layout_below="@+id/textView1"
             android:src="@drawable/line" />
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <Button
+            android:id="@+id/addRequestButtonLaboratory"
+            android:layout_width="400dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/imageView1"
-            android:src="@drawable/line" />
-
-        <EditText
-            android:id="@+id/subjectiveTextDocNotes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView4"
-            android:layout_alignBottom="@+id/textView4"
             android:layout_alignParentRight="true"
-            android:layout_toRightOf="@+id/textView4"
-            android:ems="10" >
-
-            <requestFocus />
-        </EditText>
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_below="@+id/imageView3"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/linetwo" />
+            android:onClick="addRequest"
+            android:text="Add Request" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_alignTop="@+id/imageView4"
-            android:text="Request Options"
+            android:layout_below="@+id/imageView2"
+            android:text="Request Options:"
             android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <Button
+            android:id="@+id/addItemButtonLab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/radioGroup2"
+            android:onClick="showAddServices"
+            android:text="Add Services" />
+
+        <Button
+            android:id="@+id/emptyListButtonLab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/addItemButtonLab"
+            android:text="Empty List" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/emptyListButtonLab"
+            android:text="Services:"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ListView
+            android:id="@+id/servicesList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/addRequestButtonLaboratory"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView10" />
 
         <RadioGroup
             android:id="@+id/radioGroup2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/imageView4"
-            android:layout_alignParentLeft="true" >
+            android:layout_below="@+id/textView1"
+            android:layout_toRightOf="@+id/textView5" >
 
             <RadioButton
                 android:id="@+id/radio0"
@@ -152,136 +113,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/request_stat" />
         </RadioGroup>
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/textView5"
-            android:text="Priority:"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <EditText
-            android:id="@+id/discountTextLaboratory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView8"
-            android:layout_alignBottom="@+id/textView8"
-            android:layout_alignParentRight="true"
-            android:layout_toRightOf="@+id/textView8"
-            android:ems="10"
-            android:inputType="numberDecimal" />
-
-        <EditText
-            android:id="@+id/netTotalTextLaboratory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView9"
-            android:layout_alignBottom="@+id/textView9"
-            android:layout_alignParentRight="true"
-            android:layout_toRightOf="@+id/textView9"
-            android:ems="10"
-            android:inputType="numberDecimal" />
-
-        <Button
-            android:id="@+id/addRequestButtonLaboratory"
-            android:layout_width="400dp"
-            android:layout_height="40dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:text="Add Request"
-            android:onClick="addRequest" />
-
-        <Button
-            android:id="@+id/addItemButtonLab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textView6"
-            android:layout_alignLeft="@+id/seniorCitizenCheckBoxLaboratory"
-            android:layout_below="@+id/imageView1"
-            android:text="Add Services"
-            android:onClick="showAddServices" />
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/imageView4"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/line" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/radioGroup2"
-            android:text="Services:"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <ListView
-            android:id="@+id/servicesList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/textView7"
-            android:layout_below="@+id/textView10" />
-
-        <EditText
-            android:id="@+id/editText3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView7"
-            android:layout_alignBottom="@+id/textView7"
-            android:layout_alignLeft="@+id/netTotalTextLaboratory"
-            android:layout_alignParentRight="true"
-            android:ems="10"
-            android:inputType="numberDecimal" />
-
-        <Button
-            android:id="@+id/emptyListButtonLab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/addItemButtonLab"
-            android:layout_alignRight="@+id/addItemButtonLab"
-            android:layout_below="@+id/addItemButtonLab"
-            android:text="Empty List" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/textView8"
-            android:layout_centerHorizontal="true"
-            android:text="Sub Total: PHP"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/textView9"
-            android:layout_alignRight="@+id/textView7"
-            android:text="Discount:  PHP"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textView7"
-            android:src="@drawable/line" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/addRequestButtonLaboratory"
-            android:layout_alignLeft="@+id/textView8"
-            android:layout_marginBottom="14dp"
-            android:text="Net Total:  PHP"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </RelativeLayout>
 

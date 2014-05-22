@@ -195,7 +195,7 @@ public class LoginActivity extends InitialActivity {
 			Preferences.setAuthenticationPreference(this,digest);
 			setBaseUrl();
 			setPersonnel();
-			setDeptId();
+			setDepartment();
 			System.out.println("Remember? "+Preferences.getRememberPreference(this).toString());
 			if(Preferences.getRememberPreference(this)){
 			}
@@ -240,9 +240,11 @@ public class LoginActivity extends InitialActivity {
 	}
 	
 	/* saves the key location_nr in the preferences for API use */
-	private void setDeptId() {
+	private void setDepartment() {
 		DoctorAdapter doc = new DoctorAdapter(this);
-		Preferences.setDepartmentId(this, doc.getDepartment(Preferences.getAuthenticationPreference(this)));
+		Preferences.setDepartmentName(this, doc.getDepartmentName(Preferences.getAuthenticationPreference(this)));
+		Preferences.setDepartmentId(this, doc.getDepartmentId(Preferences.getAuthenticationPreference(this))+"");
+		Preferences.setDepartmentShort(this, doc.getDepartmentShort(Preferences.getAuthenticationPreference(this)));
 	}
 
 }

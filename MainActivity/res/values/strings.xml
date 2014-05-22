@@ -12,9 +12,7 @@
   distributed under the License is distributed on an "AS IS" BASIS,
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
-  limitations under the License.
-
-
+  limitations under the License.
 -->
 
 <resources>
@@ -87,8 +85,10 @@
     <string name="title_activity_referral">Referral</string>
     <string name="title_activity_laboratory_request_add_service">LaboratoryRequestAddService</string>
     <string name="search_lab_test">Search Laboratory Test</string>
-	<string name="title_activity_laboratory_search">Laboratory Search</string>
-	<string name="title_activity_encounter_patient">EncounterPatientActivity</string>
+    <string name="title_activity_laboratory_search">Laboratory Search</string>
+    <string name="title_activity_encounter_patient">EncounterPatientActivity</string>
     <string name="title_activity_encounter_patient_info">EncounterPatientInfoActivity</string>
+    <string name="title_activity_doctors_view_notes">DoctorsViewNotes</string>
+    <string name="title_activity_doctors_view_canvas">DoctorsViewCanvas</string>
 
 </resources>

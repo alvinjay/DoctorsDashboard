@@ -335,8 +335,8 @@ public class DatabaseAdapter extends Data {
 						sync = false;
 					}
 					
-					Notes soap = new Notes(nid, eid, title, body, type, date_created, sync);
-					notelist.add(soap);
+					//Notes soap = new Notes(nid, eid, title, body, type, date_created, sync);
+					//notelist.add(soap);
 				} while (cursor.moveToNext());
 			}
 		} 

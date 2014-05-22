@@ -92,7 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_alignTop="@+id/imageView3"
+            android:layout_alignTop="@+id/imageCanvas"
             android:text="Plan:"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -106,7 +106,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <EditText
-            android:id="@+id/editText1"
+            android:id="@+id/titleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -123,7 +123,7 @@
             android:src="@drawable/line" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/imageCanvas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"

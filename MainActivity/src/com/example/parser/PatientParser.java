@@ -46,8 +46,6 @@ public class PatientParser extends JSONParser {
 		}
 	}
 	
-
-
 	public ArrayList<Patient> getPatients(){
 		
 		try{
@@ -155,15 +153,18 @@ public class PatientParser extends JSONParser {
 	
 	/* parse for only one patient */
 	public Patient getPatient(){
+		System.out.println("1");
 		
+//		System.out.println("1");
+//		System.out.println("1");
+//		System.out.println("1");
+//		System.out.println("1");
 		Age patient_age = new Age();
 		
 		try{
 			setJSONMainNode();
+			System.out.println("2");
 			JSONArray jason_array = getJSONMainNode();
-		
-			int lengthJsonArr = jason_array.length();  
-	   
 	
 	                     /****** Get Object for one JSON node.***********/
 	        JSONObject jsonChildNode = jason_array.getJSONObject(FIRST_OBJECT);
@@ -176,9 +177,8 @@ public class PatientParser extends JSONParser {
 			String name_middle 			= jsonChildNode.optString(NAME_MIDDLE).toString();
 			String date_birth 			= jsonChildNode.optString(DATE_BIRTH).toString();
 			int age 					= patient_age.getAge(date_birth);
-			System.out.println("Age:" + age);
 			String sex 					= jsonChildNode.optString(SEX).toString();
-			String street1 				= jsonChildNode.optString(STREET_1).toString();
+			String street 				= jsonChildNode.optString(STREET_1).toString();
 			String city 				= jsonChildNode.optString(CITY).toString();
 			String province 			= jsonChildNode.optString(PROVINCE).toString();
 			//String country 				= jsonChildNode.optString(COUNTRY).toString();
@@ -187,7 +187,7 @@ public class PatientParser extends JSONParser {
 			//String father_of_patient 	= jsonChildNode.optString(FATHER_OF_PATIENT).toString();
 			//String spouse_of_patient 	= jsonChildNode.optString(SPOUSE_OF_PATIENT).toString();
 			
-			patient = new Patient(pid,name_last,name_first,name_middle,sex,date_birth,age,street1,city,province,zipCode);	
+			patient = new Patient(pid,name_last,name_first,name_middle,sex,date_birth,age,street,city,province,zipCode);	
 
 		}catch(Exception e){System.out.println(e.toString() + "alvin was here");}
         

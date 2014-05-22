@@ -7,13 +7,16 @@ import android.os.Bundle;
 
 import com.example.database.EncounterAdapter;
 import com.example.database.LaboratoryAdapter;
+import com.example.database.NotesAdapter;
 import com.example.database.PatientAdapter;
 import com.example.model.Encounter;
 import com.example.model.LabRequest;
+import com.example.model.Notes;
 import com.example.model.Patient;
 import com.example.model.Rest;
 import com.example.parser.EncounterParser;
 import com.example.parser.LabRequestParser;
+import com.example.parser.NotesParser;
 import com.example.parser.PatientParser;
 
 public class InitialSyncActivity extends InitialActivity {
@@ -23,6 +26,7 @@ public class InitialSyncActivity extends InitialActivity {
 	private ArrayList<Encounter> encounters;
 	private ArrayList<Patient> patients;
 	private ArrayList<LabRequest> requests;
+	private ArrayList<Notes> notes;
 	
 	private ArrayList<String> PIDs;
 	private ArrayList<String> EIDs;
@@ -34,6 +38,7 @@ public class InitialSyncActivity extends InitialActivity {
 	private final static String PATIENT_URL = "/patient/show/";
 	private final static String ENCOUNTER_URL = "/encounter/show/";
 	private final static String LAB_REQUEST_URL = "/laboratory/vieworder/";
+	private final static String NOTES_URL = "/doctor/notes/";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +50,7 @@ public class InitialSyncActivity extends InitialActivity {
 		retrievePatientsAPI();
 		retrieveEncountersAPI();
 		retrieveLabRequestsAPI();
-		//retrieveDoctorsNotesAPI();
+		retrieveDoctorsNotesAPI();
 		
 		showLoginActivity();
 		finish();
@@ -209,6 +214,51 @@ public class InitialSyncActivity extends InitialActivity {
 			
 			/* insert encounters of patient(i) in mobile DB */
 			db.insertLabRequestsEncounter(requests, Integer.parseInt(personnel_id));
+		}
+	}
+	
+	/* retrieve thru web service all the laboratory request for each encounter tagged to a doctor */
+	private void retrieveDoctorsNotesAPI() {
+		
+		
+		notes = new ArrayList<Notes>();
+		
+		for(int i=0; i<EIDs.size(); i++){
+			NotesAdapter db = new NotesAdapter(this);
+			
+			/* clear contents of ArrayList */
+			requests.clear();
+			
+			rest = new Rest("GET", this, "");
+			
+			/* get base_url associated with doctor */
+			rest.setURL(base_url + NOTES_URL);
+			
+			/* add personnel id and pid as parameter */
+			rest.addRequestParams("doctor_nr", personnel_id);
+			rest.addRequestParams("encounter_nr", EIDs.get(i));
+			
+			/* process request service request */
+			rest.execute();
+			
+			/* check if connection was successful */
+			System.out.println("processing request..");
+				
+			/* wait until data is retrieved, there is delay in retrieving data*/
+			while(rest.getContent() == null){} 
+				
+			System.out.println("Data Received:\n" + rest.getContent());
+			
+			NotesParser parser = new NotesParser(rest.getContent());
+			/* retrieve and parse notes of each encounter of patient(i) */
+			notes = parser.getNotes();
+			//print all encounters and requests
+			for(int j=0;j<notes.size();j++){
+				System.out.println("Encounter ID: "+notes.get(j).getEncounterId());
+				System.out.println("Title: "+notes.get(j).getNotesId());
+			}
+			/* insert encounters of patient(i) in mobile DB */
+			db.insertNotes(notes);
 		}
 	}
 	

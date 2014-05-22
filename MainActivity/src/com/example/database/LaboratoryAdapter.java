@@ -59,8 +59,6 @@ public class LaboratoryAdapter extends Data {
 			}
 		} catch(SQLException se) {
 			Log.d("LABORATORY_ADAPTER", Log.getStackTraceString(se));
-		}finally{
-			db.close();
 		}
 		
 	}

@@ -2,7 +2,6 @@ package com.example.parser;
 
 import java.util.HashMap;
 
-import com.google.resting.json.JSONArray;
 import com.google.resting.json.JSONException;
 import com.google.resting.json.JSONObject;
 

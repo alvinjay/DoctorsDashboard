@@ -8,18 +8,18 @@ package com.example.model;
 
 public class Doctor {
 
-	private int personnel_id;
-	private String license_no;
-	private int dept_id;
-	private String name_last;
-	private String name_first;
-	private String name_middle;
-	private String authtoken;
-	private String accesstoken;
-	private String base_url;
-	private String last_sync;
-	private String date_birth;
-	private String sex;
+	private int 	personnel_id;
+	private String 	license_no;
+	private int 	dept_id;
+	private String 	name_last;
+	private String 	name_first;
+	private String 	name_middle;
+	private String 	authtoken;
+	private String 	accesstoken;
+	private String 	base_url;
+	private String 	last_sync;
+	private String 	date_birth;
+	private String 	sex;
 	
 	public Doctor() {
 		this.personnel_id	= 0;

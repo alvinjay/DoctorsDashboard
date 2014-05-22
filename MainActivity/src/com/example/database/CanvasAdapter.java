@@ -35,8 +35,6 @@ public class CanvasAdapter extends Data{
 			dbHandler = new DatabaseHandler(context, DATABASE_NAME, null, DATABASE_VERSION);
 		} catch (Exception e) {
 			Log.d("DatabaseHandler Exception", Log.getStackTraceString(e));
-		} finally{
-			db.close();
 		}
 	}
 	
