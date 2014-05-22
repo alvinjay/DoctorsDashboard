@@ -111,6 +111,7 @@ public class EncounterAdapter extends Data {
 				values.put(ENCOUNTER_ID, enc.get(i).getEncounterId());	
 				values.put(PID, enc.get(i).getPID());	
 				values.put(ENCOUNTERED, enc.get(i).getDateEncountered());	
+				values.put(DEPT_ID, enc.get(i).getDepartmentId());	
 				values.put(PATIENT, enc.get(i).getTypePatient());	
 				values.put(COMPLAINT , enc.get(i).getMessageComplaint());
 				db.insertWithOnConflict(TABLE_ENCOUNTER, null, values, SQLiteDatabase.CONFLICT_REPLACE);

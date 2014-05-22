@@ -24,9 +24,8 @@
     <string-array name="dashlets_array">
         <item>Patient</item>
         <item>Laboratory</item>
-        <item>Medical History</item>
-        <item>Results</item>
         <item>Calculations</item>
+        <item>Manual Sync</item>
         <item>Encounters</item>
         <item>Logout</item>
     </string-array>
@@ -55,7 +54,7 @@
     <string name="hello_calculations">This is the calculations form</string>
     <string name="hello_encounters">This is the encounters form</string>
     <string name="str_home">Home</string>
-    <string name="title_activity_register">Register</string>
+    <string name="title_activity_register">Registration</string>
     <string name="hint_firstname">First</string>
     <string name="hint_lastname">Last</string>
     <string name="hint_reenterpassword">Re-enter password</string>

@@ -139,20 +139,18 @@ public abstract class BaseActivity extends InitialActivity{
         		intent = new Intent(context, CanvassActivity.class);
         	}
         	else if(position == 3){
-        		intent = new Intent(context, ResultsActivity.class);
-        	}
-        	else if(position == 4){
         		intent = new Intent(context, CalculationsActivity.class);
         	}
-        	else if(position == 5){
-        		intent = new Intent(context, EncountersActivity.class);
+        	else if(position == 4){
+        		intent = new Intent(context, ManualSync.class);
         	}
-            else if(position == 6){
-            	resetPreferences();
-                intent = new Intent(context, LoginActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            }
+        	else if(position == 5){
+        		resetPreferences();
+        		intent = new Intent(context, LoginActivity.class);
+        		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        	}
+       
         	
         	startActivity(intent);
             selectItem(position);
@@ -180,8 +178,6 @@ public abstract class BaseActivity extends InitialActivity{
         
     }
     
-    
-
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
@@ -240,15 +236,5 @@ public abstract class BaseActivity extends InitialActivity{
         */
     }
 
-
-    public void resetPreferences() {
-    	/*Created by: Christian Joseph Dalisay
-    	 *Created On: 5/14/14 
-    	 *ResetPreferences = resets the stored account preferences to blank
-    	 */
-    	Preferences.setRememberPreference(this, false);
-    	Preferences.setBaseUrlPreference(this, "");
-    	Preferences.setPersonnelPreference(this, 0);
-    }
 
 }

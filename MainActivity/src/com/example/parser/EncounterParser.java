@@ -5,8 +5,8 @@ package com.example.parser;
 
 import java.util.ArrayList;
 
-import com.example.model.Department;
 import com.example.model.Encounter;
+import com.example.model.Patient;
 import com.google.resting.json.JSONArray;
 import com.google.resting.json.JSONException;
 import com.google.resting.json.JSONObject;
@@ -78,4 +78,36 @@ public class EncounterParser extends JSONParser{
         
         return encounters;
 	}
+	
+	public ArrayList<String> getPatientIds(){
+		
+		/* store all unique patient ids here*/
+		ArrayList<String> pids = new ArrayList<String>();
+
+		try{
+		
+			int lengthJsonArr = json_array.length();  
+	   
+	        for(int i=0; i < lengthJsonArr; i++) 
+	        {
+	                         /****** Get Object for each JSON node.***********/
+	            JSONObject jsonChildNode = json_array.getJSONObject(i);
+	                           
+	                         /******* Fetch node values **********/
+	            String    pid       	= jsonChildNode.optString(PID).toString();
+				
+	            /* check if arraylist already contains the pid */
+	            if(!pids.contains(pid)){
+	            	/* insert if no duplication */
+	            	pids.add(pid);
+	            }
+	        }
+	        
+		}catch(Exception e){
+			System.out.println(e.toString() + "	patient_id error ");
+		}
+        
+        return pids;
+	}
+	
 }

@@ -73,14 +73,6 @@ public class LoginActivity extends InitialActivity {
 	protected void onPause() {
 		super.onPause();
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		super.onCreateOptionsMenu(menu);
-		getMenuInflater().inflate(R.menu.login, menu);
-		
-		return true;
-	}
 	
 	/* called when the "Register" button is clicked */
 	public void showRegisterActivity(View view){

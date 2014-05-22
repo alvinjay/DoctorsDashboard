@@ -46,6 +46,16 @@ public class InitialActivity extends Activity{
 	    return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 	}
     
+    public void resetPreferences() {
+    	/*Created by: Christian Joseph Dalisay
+    	 *Created On: 5/14/14 
+    	 *ResetPreferences = resets the stored account preferences to blank
+    	 */
+    	Preferences.setRememberPreference(this, false);
+    	Preferences.setBaseUrlPreference(this, "");
+    	Preferences.setPersonnelPreference(this, 0);
+    }
+    
     /* displays message dialog */
     protected void alertMessage(String message){
     	Toast.makeText(this, message, Toast.LENGTH_LONG).show();

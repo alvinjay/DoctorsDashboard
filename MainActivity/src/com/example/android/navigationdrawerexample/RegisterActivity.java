@@ -9,12 +9,8 @@
 
 package com.example.android.navigationdrawerexample;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -25,18 +21,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.api.auth.MD5Hash;
 import com.example.database.DoctorAdapter;
-import com.example.database.EncounterAdapter;
 import com.example.database.RegistrationAdapter;
 import com.example.model.Doctor;
-import com.example.model.HelperSharedPreferences;
 import com.example.model.Preferences;
+import com.example.model.ProgressDialogMaker;
 import com.example.model.Registration;
 import com.example.model.Rest;
 import com.example.parser.TokenParser;
@@ -78,7 +72,7 @@ public class RegisterActivity extends InitialActivity{
 		}
 		else{
 			setContentView(R.layout.activity_register);
-			getActionBar().setDisplayHomeAsUpEnabled(false);
+			//getActionBar().setDisplayHomeAsUpEnabled(false);
 			getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 			initViews();
 		}
@@ -285,6 +279,7 @@ public class RegisterActivity extends InitialActivity{
 			e.printStackTrace();
 		}
 		
+		
 		/* process service request */
 		rest.execute();
 		
@@ -294,7 +289,8 @@ public class RegisterActivity extends InitialActivity{
 			
 		/* wait until data is retrieved, there is delay in retrieving data*/
 		while(rest.getContent() == null){} 
-			
+		
+		//pd.dismiss();
 		System.out.println("Data Received:\n" + rest.getContent());
 			
 		if(parseJSONResponse(rest.getContent())){
@@ -390,15 +386,6 @@ public class RegisterActivity extends InitialActivity{
 		startActivityForResult(intent, 1);
 	}
 
-	 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.register, menu);
-		return true;
-	}
-
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
@@ -415,19 +402,6 @@ public class RegisterActivity extends InitialActivity{
 	 * A placeholder fragment containing a simple view.
 	 */
 
-	public static class PlaceholderFragment extends Fragment {
-
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_register,
-					container, false);
-			return rootView;
-		}
-	}
 	
 	@Override
 	protected void onPause() {

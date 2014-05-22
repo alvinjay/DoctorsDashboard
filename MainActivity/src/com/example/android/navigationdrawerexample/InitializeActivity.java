@@ -23,6 +23,7 @@ import com.example.database.LabServiceAdapter;
 import com.example.model.Department;
 import com.example.model.LabService;
 import com.example.model.Preferences;
+import com.example.model.ProgressDialogMaker;
 import com.example.model.Rest;
 import com.example.parser.DepartmentParser;
 import com.example.parser.LabServiceParser;
@@ -36,9 +37,10 @@ public class InitializeActivity extends InitialActivity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {		
 		
-		//setContentView(R.layout.activity_loading_screen);
 		super.onCreate(savedInstanceState);
 		
+//		ProgressDialogMaker pd = new ProgressDialogMaker(this, "Trial..");
+
 		/* initializes the database, and the shared preferences */
 		DatabaseAdapter db = new DatabaseAdapter(this);
 		Preferences.createPreferences(this);
