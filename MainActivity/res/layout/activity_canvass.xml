@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Existing Canvas" 
+        android:id="@+id/ChoosePictureButton"/>
+     <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Picture" 
+        android:id="@+id/SavePictureButton"/>
+     <Button
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:text="View Existing Canvas"
+         android:id="@+id/ViewImageButton" />
+     
+     <Button
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:text="Erase Canvas"
+         android:id="@+id/eraseButton" />
+     <ImageView android:layout_width="fill_parent" 
+        android:layout_height="fill_parent" 
+        android:id="@+id/chosenImageView"
+        android:scaleType="fitXY">
+    </ImageView>
+</LinearLayout>

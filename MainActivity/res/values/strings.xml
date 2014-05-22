@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2013 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<resources>
+
+    <string name="app_name">Doctor\'s Dashboard</string>
+
+    <string-array name="dashlets_array">
+        <item>Patient</item>
+        <item>Laboratory</item>
+        <item>Calculations</item>
+        <item>Manual Sync</item>
+        <item>Encounters</item>
+        <item>Logout</item>
+    </string-array>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_websearch">Web search</string>
+    <string name="app_not_available">Sorry, there\'s no web browser available</string>
+    <string name="title_activity_patient">Patient</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="hello_register">Register activity</string>
+    <string name="title_activity_laboratory">Laboratory</string>
+    <string name="title_activity_medical_history">Medical History</string>
+    <string name="title_activity_results">Results</string>
+    <string name="title_activity_calculations">Calculations</string>
+    <string name="title_activity_encounters">Encounters</string>
+    <string name="title_activity_canvass">Canvas</string>
+    <string name="hello_laboratory">This is the laboratory form</string>
+    <string name="hello_patient">This is the patient form</string>
+    <string name="hello_medical_history">This is the medical history form</string>
+    <string name="hello_results">This is the results form</string>
+    <string name="hello_calculations">This is the calculations form</string>
+    <string name="hello_encounters">This is the encounters form</string>
+    <string name="str_home">Home</string>
+    <string name="title_activity_register">Registration</string>
+    <string name="hint_firstname">First</string>
+    <string name="hint_lastname">Last</string>
+    <string name="hint_reenterpassword">Re-enter password</string>
+    <string name="hint_middlename">Middle</string>
+    <string name="str_register">Register</string>
+    <string name="hint_enter_personnel_number">Enter personnel number</string>
+    <string name="str_check_doctor">Check</string>
+    <string name="text_doctor_text">Doctor: </string>
+    <string name="text_firstname">Firstname</string>
+    <string name="text_lastname">Lastname</string>
+    <string name="title_activity_validate_doctor">Doctor Registration</string>
+    <string name="str_doctor_information">Doctor Information</string>
+    <string name="title_activity_patient_info">PatientInfo</string>
+    <string name="title_activity_tag">TagPatient</string>
+    <string name="title_activity_untag">UntagPatient</string>
+    <string name="title_activity_patient_encounter">PatientEncounter</string>
+    <string name="enter_patient_name">Enter Patient Name</string>
+    <string name="title_activity_laboratory_request">LaboratoryRequest</string>
+    <string name="transaction_cash">Cash</string>
+    <string name="transaction_charge">Charge</string>
+    <string name="discount_classification">Classification</string>
+    <string name="discount_senior">Senior Citizen</string>
+    <string name="request_routine">Routine</string>
+    <string name="request_stat">STAT</string>
+    <string name="title_activity_loading_screen">LoadingScreen</string>
+    <string name="title_activity_doctors_notes">DoctorsNotes</string>
+    <string name="title_activity_doctors_notes_assessment">DoctorsNotesAssessment</string>
+    <string name="search_diagnosis">Search Diagnosis</string>
+    <string name="PID">PID:</string>
+    <string name="title_activity_referral">Referral</string>
+    <string name="title_activity_laboratory_request_add_service">LaboratoryRequestAddService</string>
+    <string name="search_lab_test">Search Laboratory Test</string>
+    <string name="title_activity_laboratory_search">Laboratory Search</string>
+    <string name="title_activity_encounter_patient">EncounterPatientActivity</string>
+    <string name="title_activity_encounter_patient_info">EncounterPatientInfoActivity</string>
+    <string name="title_activity_doctors_view_notes">DoctorsViewNotes</string>
+    <string name="title_activity_doctors_view_canvas">DoctorsViewCanvas</string>
+
+</resources>

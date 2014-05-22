@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   	
+   	<string name="offline">No Network Connection</string>
+    <string name="try_again">Try Again</string>
+    
+</resources>
