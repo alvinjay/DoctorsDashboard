@@ -256,10 +256,7 @@ public class PatientInfoActivity extends ExpandableListActivity {
 	
 	/* set contents of layout elements based on patient info */
 	private void setViewsContents() {
-		
-		histOfSmokingCheckBox.setChecked(false);
-		histOfDrinkingCheckBox.setChecked(false);
-		
+
 		String nametext = patient.getNameLast() + ", " + patient.getNameFirst();
 				
 		
@@ -289,9 +286,6 @@ public class PatientInfoActivity extends ExpandableListActivity {
 		genderEditText = (EditText) findViewById(R.id.Gender);
 		addressEditText = (EditText) findViewById(R.id.Address);
 		ageEditText = (EditText) findViewById(R.id.Age);
-		
-		histOfSmokingCheckBox = (CheckBox) findViewById(R.id.HistOfSmoking);
-		histOfDrinkingCheckBox = (CheckBox) findViewById(R.id.HistOfDrinking);
 
 		tag = (Button) findViewById(R.id.TagPatientButton);
 		refer = (Button) findViewById(R.id.ReferPatientButton);
