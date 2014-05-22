@@ -30,8 +30,8 @@ public class LoginActivity extends InitialActivity {
 	
 	
 	/* values for username and password at the time of the login attempt */
-	private String username = "seurinane";
-	private String password = "1234";
+	private String username;// = "seurinane";
+	private String password;// = "1234";
 	
 	/* UI layout references */
 	private EditText et_username;
@@ -108,7 +108,7 @@ public class LoginActivity extends InitialActivity {
 		setInputText();
 		
 		/* Convert data type from EditText -> Editable -> String */ 
-		//convertInputText();
+		convertInputText();
 		
 		//* Validate inputs from user (i.e. empty field, unequal passwords) */
 		if(validateInputs()){

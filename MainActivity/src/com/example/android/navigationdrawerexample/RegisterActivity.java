@@ -43,11 +43,11 @@ public class RegisterActivity extends InitialActivity{
 	private Registration reg;
 	private Rest rest;
 	
-	private String license_nr = "0117236";
-	private String username = "seurinane";
-	private String password = "1234";
-	private String confirm_password = "1234";
-	private String base_url = "http://121.97.45.242/segservice";
+	private String license_nr;// = "0117236";
+	private String username;// = "seurinane";
+	private String password;// = "1234";
+	private String confirm_password;// = "1234";
+	private String base_url;// = "http://121.97.45.242/segservice";
 	
 	private HashMap<String, String> data;
 	
@@ -107,7 +107,7 @@ public class RegisterActivity extends InitialActivity{
 	public boolean prepareCredentials(){
 		
 		/* Convert data type from EditText -> Editable -> String */ 
-		//convertInputText();
+		convertInputText();
 		
 		/* Validate inputs from user (i.e. empty field, unequal passwords) */
 		if(!validateInputs()){

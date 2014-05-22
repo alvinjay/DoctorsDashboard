@@ -119,7 +119,7 @@ public class PatientInfoActivity extends ExpandableListActivity {
 			encounter_id = extras.getInt("EXTRA_ENCOUNTER_ID");
 			System.out.println("encounter_id:" + encounter_id);
 			saveEncounterIdPreferences();
-			alertMessage(encounter_id+"");
+			//alertMessage(encounter_id+"");
 		}catch(Exception e){
 			System.out.println("no encounter_id");
 		}
@@ -160,7 +160,7 @@ public class PatientInfoActivity extends ExpandableListActivity {
 		if(encounter_id == EMPTY){
 			encounter_id = encounter.getEncounterId();
 			saveEncounterIdPreferences();
-			alertMessage(encounter_id+"");
+			//alertMessage(encounter_id+"");
 		}
 
 		/* hide tag and refer button on offline mode */
@@ -346,7 +346,7 @@ public class PatientInfoActivity extends ExpandableListActivity {
 				encounter_id = encounter.getEncounterId();
 				
 				saveEncounterIdPreferences();
-				alertMessage(encounter_id+"");
+				//alertMessage(encounter_id+"");
 				
 			}
 			
