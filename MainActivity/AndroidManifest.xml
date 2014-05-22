@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2013 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.android.navigationdrawerexample"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Holo.Light.DarkActionBar" >
+        <activity
+            android:name="com.example.android.navigationdrawerexample.MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.PatientActivity"
+            android:label="@string/title_activity_patient" >
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.LaboratoryActivity"
+            android:label="@string/title_activity_laboratory" >
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.MedicalHistoryActivity"
+            android:label="@string/title_activity_medical_history" >
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.ResultsActivity"
+            android:label="@string/title_activity_results" >
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.CalculationsActivity"
+            android:label="@string/title_activity_calculations" >
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.EncountersActivity"
+            android:label="@string/title_activity_encounters" >
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.InitializeActivity"
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:parentActivityName="com.example.android.navigationdrawerexample.InitializeActivity" >
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:parentActivityName="com.example.android.navigationdrawerexample.LoginActivity" >
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.InitialSyncActivity"
+            android:label="@string/title_activity_register"
+            android:parentActivityName="com.example.android.navigationdrawerexample.RegisterActivity" >
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.ValidateDoctor"
+            android:label="@string/title_activity_validate_doctor"
+            android:parentActivityName="com.example.android.navigationdrawerexample.LoginActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.navigationdrawerexample.LoginActivity" />
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.PatientInfoActivity"
+            android:label="@string/title_activity_patient_info"
+            android:parentActivityName="com.example.android.navigationdrawerexample.PatientActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.navigationdrawerexample.PatientActivity" />
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.TagPatientActivity"
+            android:label="@string/title_activity_tag" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.navigationdrawerexample.PatientInfoActivity" />
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.UntagPatientActivity"
+            android:label="@string/title_activity_untag" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.navigationdrawerexample.PatientInfoActivity" />
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.PatientEncounterActivity"
+            android:label="@string/title_activity_patient" >
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.CanvassActivity"
+            android:label="@string/title_activity_canvass" >
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.LaboratoryRequest"
+            android:label="@string/title_activity_laboratory_request"
+            android:parentActivityName="com.example.android.navigationdrawerexample.LaboratoryActivity"
+            android:windowSoftInputMode="adjustPan" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.navigationdrawerexample.LaboratoryActivity" />
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.DoctorsNotes"
+            android:label="@string/title_activity_doctors_notes" >
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.DoctorsNotesAssessment"
+            android:label="@string/title_activity_doctors_notes_assessment"
+            android:parentActivityName="com.example.android.navigationdrawerexample.DoctorsNotes" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.navigationdrawerexample.DoctorsNotes" />
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.LaboratoryRequestAddService"
+            android:label="@string/title_activity_laboratory_request_add_service"
+            android:parentActivityName="com.example.android.navigationdrawerexample.LaboratoryRequest"
+            android:windowSoftInputMode="adjustPan" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.navigationdrawerexample.LaboratoryRequest" />
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.ReferralActivity"
+            android:label="@string/title_activity_referral" >
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.EncounterPatientActivity"
+            android:label="@string/title_activity_encounter_patient" >
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.EncounterPatientInfoActivity"
+            android:label="@string/title_activity_encounter_patient_info" >
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.LaboratorySearchActivity"
+            android:label="@string/title_activity_laboratory_search" >
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.DoctorsViewNotes"
+            android:label="@string/title_activity_doctors_view_notes" >
+        </activity>
+        <activity
+            android:name="com.example.android.navigationdrawerexample.DoctorsViewCanvas"
+            android:label="@string/title_activity_doctors_view_canvas" >
+        </activity>
+    </application>
+
+</manifest>

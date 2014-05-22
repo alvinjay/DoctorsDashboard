@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    
+    <TextView
+        android:id="@+id/tvNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="56dp"
+        android:layout_y="70dp"
+        android:text="@string/offline"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <Button
+        android:id="@+id/btnTryAgain"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="127dp"
+        android:layout_y="234dp"
+        android:text="@string/try_again"
+        android:onClick="showRegisterActivity" 
+        />
+
+
+</AbsoluteLayout>
