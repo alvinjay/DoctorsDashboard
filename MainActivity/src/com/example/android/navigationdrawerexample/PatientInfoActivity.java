@@ -194,11 +194,13 @@ public class PatientInfoActivity extends ExpandableListActivity {
 		retrieveEncounterAPI(patient_id);
 		
 		System.out.println("Encounter Dept:" + encounter.getDepartmentId());
+		System.out.println("Doctor Dept:" + Preferences.getDepartmentId(this));
 
 		/* check if current encounter belongs to the same department as the doctor */
-		if(Preferences.getDepartmentId(this) != encounter.getDepartmentId()){
+		if(!Preferences.getDepartmentId(this).equals(encounter.getDepartmentId())){
 			
 			System.out.println("Different departments");
+			
 			/* hide tag and refer button on online mode if location_nr are different */
 			tag.setVisibility(CONTEXT_RESTRICTED);
 			refer.setVisibility(CONTEXT_RESTRICTED);		
@@ -348,6 +350,18 @@ public class PatientInfoActivity extends ExpandableListActivity {
 				saveEncounterIdPreferences();
 				alertMessage(encounter_id+"");
 				
+			}
+			else{ /* if encounter_id is set then retrieve encounter info where encounter_ids match */
+				
+				for(int i=0; i<encounters.size();i++){
+					
+					/* check if encounter_ids match */
+					if(encounter_id == encounters.get(i).getEncounterId()){
+						encounter = encounters.get(i);		
+						break;
+					}
+					
+				}
 			}
 			
 			//print pid and encounter_id

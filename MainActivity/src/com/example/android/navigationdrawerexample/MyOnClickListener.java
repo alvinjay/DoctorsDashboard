@@ -52,7 +52,7 @@ public class MyOnClickListener implements OnClickListener {
 				intent.putExtras(bundle);
 				view.getContext().startActivity(intent);
 				
-				Toast.makeText(view.getContext(),"groupPos:"+lastExpandedGroupPosition+"\n"+"childPos:"+childPos, Toast.LENGTH_SHORT).show();
+				//Toast.makeText(view.getContext(),"groupPos:"+lastExpandedGroupPosition+"\n"+"childPos:"+childPos, Toast.LENGTH_SHORT).show();
 				break;
 			case INDEX_PREVIOUS_REQUESTS:
 				

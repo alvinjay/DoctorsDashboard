@@ -33,13 +33,12 @@
                 android:layout_alignBaseline="@+id/textView2"
                 android:layout_alignBottom="@+id/textView2"
                 android:layout_alignLeft="@+id/CaseNo"
-                android:layout_alignRight="@+id/CaseNo"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:layout_toLeftOf="@+id/TextView05"
                 android:clickable="false"
-				android:focusable="false"
-				android:focusableInTouchMode="false" 
-				/>
+                android:ems="10"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/CaseNo"
@@ -47,13 +46,13 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/TextView01"
                 android:layout_alignBottom="@+id/TextView01"
-                android:layout_alignParentRight="true"
+                android:layout_toLeftOf="@+id/TextView05"
                 android:layout_toRightOf="@+id/TextView02"
-                android:ems="10"
-                android:inputType="textPostalAddress"
                 android:clickable="false"
-				android:focusable="false"
-				android:focusableInTouchMode="false" />
+                android:ems="10"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="textPostalAddress" />
 
             <EditText
                 android:id="@+id/FullName"
@@ -63,64 +62,11 @@
                 android:layout_alignBottom="@+id/TextView02"
                 android:layout_alignLeft="@+id/CaseNo"
                 android:layout_alignParentRight="true"
-                android:ems="10"
-                android:inputType="number"
                 android:clickable="false"
-				android:focusable="false"
-				android:focusableInTouchMode="false" />
-
-            <EditText
-                android:id="@+id/Gender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/TextView05"
-                android:layout_alignBottom="@+id/TextView05"
-                android:layout_toLeftOf="@+id/HistOfDrinking"
-                android:layout_toRightOf="@+id/TextView02"
                 android:ems="10"
-                android:inputType="number"
-                android:clickable="false"
-				android:focusable="false"
-				android:focusableInTouchMode="false" />
-
-            <Button
-                android:id="@+id/ReferPatientButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/SaveButton"
-                android:layout_alignBottom="@+id/SaveButton"
-                android:layout_alignParentRight="true"
-                android:onClick="showReferPatient"
-                android:text="Refer Patient" />
-
-            <Button
-                android:id="@+id/SaveButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/TagPatientButton"
-                android:layout_alignBottom="@+id/TagPatientButton"
-                android:layout_alignParentLeft="true"
-                android:text="Save" />
-
-            <Button
-                android:id="@+id/TagPatientButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/HistOfDrinking"
-                android:layout_marginTop="10dp"
-                android:layout_toRightOf="@+id/TextView02"
-                android:text="Tag Patient" 
-                android:onClick="handleTagClick"
-                />
-
-            <CheckBox
-                android:id="@+id/HistOfSmoking"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_below="@+id/Age"
-                android:layout_marginTop="11dp"
-                android:text="History of Smoking" />
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="number" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -132,25 +78,6 @@
                 android:text="HRN"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <ExpandableListView
-                android:id="@android:id/list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/textView2"
-                android:layout_below="@+id/TagPatientButton"
-                android:groupIndicator="@null"
-                android:orientation="vertical" />
-
-            <TextView
-                android:id="@+id/TextView05"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_below="@+id/TextView03"
-                android:layout_marginTop="24dp"
-                android:text="Gender"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
             <TextView
                 android:id="@+id/TextView02"
                 android:layout_width="wrap_content"
@@ -160,40 +87,6 @@
                 android:layout_marginTop="15dp"
                 android:text="Full Name"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <CheckBox
-                android:id="@+id/HistOfDrinking"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/HistOfSmoking"
-                android:layout_alignBottom="@+id/HistOfSmoking"
-                android:layout_alignParentRight="true"
-                android:text="History of Drinking" />
-
-            <TextView
-                android:id="@+id/TextView04"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/Gender"
-                android:layout_alignBottom="@+id/Gender"
-                android:layout_marginLeft="15dp"
-                android:layout_toRightOf="@+id/HistOfSmoking"
-                android:text="Age"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <EditText
-                android:id="@+id/Age"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/Gender"
-                android:layout_alignBottom="@+id/Gender"
-                android:layout_alignParentRight="true"
-                android:layout_toRightOf="@+id/TextView04"
-                android:ems="10"
-                android:inputType="number"
-                android:clickable="false"
-				android:focusable="false"
-				android:focusableInTouchMode="false" />
 
             <TextView
                 android:id="@+id/TextView01"
@@ -222,16 +115,62 @@
                 android:layout_alignLeft="@+id/FullName"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/FullName"
-                android:ems="10"
-                android:inputType="textPostalAddress"
                 android:clickable="false"
                 android:editable="false"
-				android:focusable="false"
-				android:focusableInTouchMode="false" 
-				 >
+                android:ems="10"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="textPostalAddress" >
 
                 <requestFocus />
             </EditText>
+
+            <TextView
+                android:id="@+id/TextView05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/CaseNo"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="37dp"
+                android:text="Gender"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/TextView04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/TextView02"
+                android:layout_alignRight="@+id/TextView05"
+                android:text="Age"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/Age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/CaseNo"
+                android:layout_alignBottom="@+id/CaseNo"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/TextView04"
+                android:clickable="false"
+                android:ems="10"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/Gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/TextView05"
+                android:layout_alignBottom="@+id/TextView05"
+                android:layout_alignLeft="@+id/Age"
+                android:layout_alignParentRight="true"
+                android:clickable="false"
+                android:ems="10"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="number" />
 
         </RelativeLayout>
     </GridLayout>
@@ -245,5 +184,59 @@
         android:layout_marginTop="1dp"
         android:text="Patient Encounter"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/SaveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/gridLayout1"
+        android:layout_below="@+id/gridLayout1"
+        android:layout_marginTop="100dp"
+        android:text="Save" />
+
+    <Button
+        android:id="@+id/ReferPatientButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/SaveButton"
+        android:layout_alignBottom="@+id/SaveButton"
+        android:layout_alignRight="@+id/gridLayout1"
+        android:onClick="showReferPatient"
+        android:text="Refer Patient" />
+
+    <Button
+        android:id="@+id/TagPatientButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ReferPatientButton"
+        android:layout_alignBottom="@+id/ReferPatientButton"
+        android:layout_centerHorizontal="true"
+        android:onClick="handleTagClick"
+        android:text="Tag Patient" />
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SaveButton"
+        android:layout_centerHorizontal="true" >
+
+    </ListView>
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/TagPatientButton"
+        android:layout_alignLeft="@+id/SaveButton"
+        android:text="History of Smoking" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ReferPatientButton"
+        android:layout_alignParentRight="true"
+        android:text="History of Drinking" />
 
 </RelativeLayout>
